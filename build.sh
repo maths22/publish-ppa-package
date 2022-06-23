@@ -68,7 +68,7 @@ for s in $SERIES; do
             -k"$GPG_KEY_ID" \
             -p"gpg --batch --passphrase "$GPG_PASSPHRASE" --pinentry-mode loopback"
     fi
-    dput $REPOSITORY ../*.changes
+    dput --unchecked $REPOSITORY ../*.changes
 
     rm -rf ../*.{changes,build,buildinfo,deb,ddeb,dsc}
     echo "::endgroup::"
