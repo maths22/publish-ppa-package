@@ -49,10 +49,10 @@ for s in $SERIES; do
 
     if [[ "$IS_NATIVE" == "true" ]]; then
         echo "Making native package..."
-        debmake -n -t
+        debmake -n -t -y
     else
         echo "Making non-native package..."
-        debmake -t
+        debmake -t -y
     fi
 
     mk-build-deps --install --remove --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes' debian/control
