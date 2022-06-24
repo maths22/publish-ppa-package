@@ -57,7 +57,7 @@ for s in $SERIES; do
 
     mk-build-deps --install --remove --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes' debian/control
 
-    sed -i"" -re "s/\s\w+;/ $s;/" -re "s/\((.+-[^~]+).*\)/(\1~ubuntu${version})/" debian/changelog 
+    sed -i"" -re "1 s/\s\w+;/ $s;/" -re "1 s/\((.+-[^~]+).*\)/(\1~ubuntu${version})/" debian/changelog 
 
     if [[ "$IS_NATIVE" == "true" ]]; then
         echo "y" | debuild -S -sa \
